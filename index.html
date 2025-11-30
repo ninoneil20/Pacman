@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Web Pac-Man — Playable</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Web Pac-Man</h1>
+    <div class="scoreboard">
+      <span id="score">Score: 0</span>
+      <button id="btnPlay">Play</button>
+      <button id="btnPause">Pause</button>
+    </div>
+  </header>
+
+  <main>
+    <canvas id="game" width="600" height="600"></canvas>
+
+    <aside class="controls">
+      <h3>Customize</h3>
+      <label>Pac-Man color: <input id="pacColor" type="color" value="#ffd700"></label>
+      <label>Ghost color: <input id="ghostColor" type="color" value="#ff0000"></label>
+      <label>Background color: <input id="bgColor" type="color" value="#000000"></label>
+      <label>Grid size: 
+        <select id="gridSize">
+          <option value="20">20 px</option>  
+          <option value="15">15 px</option>
+          <option value="25">25 px</option>
+        </select>
+      </label>
+      <label>Speed (lower = faster): <input id="speed" type="range" min="40" max="200" value="90"></label>
+      <button id="apply">Apply</button>
+
+      <hr>
+      <p>Controls: Arrow keys or W/A/S/D</p>
+      <p>Eat dots for +10, power-up for +50, eat vulnerable ghost for +200</p>
+    </aside>
+  </main>
+
+  <footer>
+    <small>Copy files locally and open <strong>index.html</strong> to play.</small>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
