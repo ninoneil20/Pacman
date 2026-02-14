@@ -1,0 +1,196 @@
+/* --- Global Styles & Variables --- */
+:root {
+  --bg: #000;
+  --panel: #111;
+  --accent: #ffd700;
+  --border: #222;
+  --button-bg: #222;
+  --button-border: #333;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile tap */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --- Header & Scoreboard --- */
+header {
+  width: 100%;
+  max-width: 980px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: 600;
+}
+
+/* --- Main Game Layout --- */
+main {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 980px;
+  padding: 20px;
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+canvas {
+  background: #000;
+  border: 6px solid var(--border);
+  display: block;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Sidebar Controls --- */
+.controls {
+  width: 260px;
+  padding: 16px;
+  background: #121212;
+  border-radius: 8px;
+  border: 1px solid #222;
+}
+
+.controls h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.controls label {
+  display: block;
+  margin: 10px 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.controls input[type="color"] {
+  margin-left: 8px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.controls input[type="range"] {
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* --- Buttons --- */
+button {
+  background: var(--button-bg);
+  color: #fff;
+  border: 1px solid var(--button-border);
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #333;
+  border-color: #444;
+}
+
+#apply {
+  width: 100%;
+  margin-top: 10px;
+  background: #2a2a2a;
+}
+
+/* --- Mobile D-Pad Controls --- */
+#mobile-controls {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+  user-select: none;
+}
+
+.middle-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.d-btn {
+  width: 65px;
+  height: 65px;
+  background: #1a1a1a;
+  border: 2px solid #333;
+  color: #fff;
+  font-size: 22px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  touch-action: manipulation; /* CRITICAL: Prevents zoom delay on mobile */
+}
+
+.d-btn:active {
+  background: var(--accent);
+  color: #000;
+  border-color: #fff;
+  transform: scale(0.95);
+}
+
+/* --- Footer --- */
+footer {
+  margin: 20px 0 40px;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 850px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  header {
+    padding: 10px;
+  }
+
+  .controls {
+    width: 100%;
+    max-width: 450px;
+  }
+
+  #mobile-controls {
+    display: flex; /* Show D-pad on mobile */
+  }
+}
